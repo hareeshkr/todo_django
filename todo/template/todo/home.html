@@ -1,0 +1,30 @@
+{% extends 'todo/base.html'%}
+
+{% block content %}
+<form action="#" method="post">
+    {% csrf_token %}
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center row">
+            <div class="col-md-6">
+                <div class="p-3 bg-white">
+                {% for item in items%}
+                    <div class="d-flex align-items-center"><label><input type="checkbox" class="option-input checkbox" name="check" value="{{item.id}}"><span class="label-text">{{ item.item }}</span></label></div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-success" type="submit" value="save">Clear Checked</button>
+    </div>
+    <hr>
+</form>
+
+
+<div class="text-center">
+    <a href="/create" class="btn btn-success">Create to do</a>   
+</div>
+
+
+    
+{% endblock %}
